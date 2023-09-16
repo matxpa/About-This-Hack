@@ -168,6 +168,7 @@ class ViewController: NSViewController {
         blPrefix.toolTip = blPrefixtoolTip
         blVersion.toolTip = blVersiontoolTip
         graphics.toolTip = graphicstoolTip
+        ram.toolTip = ramtoolTip
     }
     
     @IBAction func hideSerialNumber(_ sender: NSButton) {
