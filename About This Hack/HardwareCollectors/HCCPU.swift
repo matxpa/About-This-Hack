@@ -12,11 +12,3 @@ class HCCPU {
         return run("head -" + lastLineCpu + " " + initGlobVar.hwFilePath + " | tail -$(echo " + lastLineCpu + "-" + firstLineCpu + " | bc)")
     }
 }
-import Cocoa
-
-class HCCPU {
-    
-    static func getCPU() -> String {
-        return run("sysctl -n machdep.cpu.brand_string")
-    }
-}
