@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Keycode {
     
     // Layout-independent Keys
