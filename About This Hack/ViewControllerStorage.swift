@@ -27,6 +27,7 @@ class ViewControllerStorage: NSViewController {
     override func viewDidAppear() {
         self.view.window?.styleMask.remove(NSWindow.StyleMask.resizable)
         start()
+        setToolTips()
     }
 
     func start() {
@@ -35,14 +36,20 @@ class ViewControllerStorage: NSViewController {
         if (!HardwareCollector.dataHasBeenSet) {HardwareCollector.getAllData()}
 
         // Image
-        if HardwareCollector.getStorageType() == true {
-            startupDiskImage.image = NSImage(named: "SSD")
-        } else {
-            startupDiskImage.image = NSImage(named: "HDD")
+        startupDiskImage.image = NSImage(named: "HDD")              // Default Value
+        let imageShortName = (HCVersion.OSname + " " + HardwareCollector.devicelocation)
+        switch HardwareCollector.getStorageType() {
+            case true: startupDiskImage.image = NSImage(named: imageShortName + " SSD")
+            case false:startupDiskImage.image = NSImage(named: imageShortName + " HDD")
         }
 
         // Text
         storageValue.stringValue = HardwareCollector.storageData
         storageAmount.doubleValue = HardwareCollector.storagePercent*1000000
+    }
+    
+    func setToolTips(){
+        startupDiskImage.toolTip = startupDiskImagetoolTip
+        storageValue.toolTip     = storageValuetoolTip
     }
 }
