@@ -14,7 +14,14 @@ class UpdateController {
             print("Done")
             return prompt
         }
-        return false
+            else {
+                print("You have the latest version: " + latestVersion)
+                let prompt = alert(message: "No new update found!", text: "You have the latest version: " + latestVersion)
+                print("Done")
+                return prompt
+            }
+        //}
+        //return false
     }
     
     static func alert(message: String, text: String) -> Bool {
