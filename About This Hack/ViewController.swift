@@ -39,6 +39,17 @@ class ViewController: NSViewController {
         _ = HCRAM.getRam()
         _ = HCStartupDisk.getStartupDisk()
         _ = HCDisplay.getDisp()
+        _ = HCGPU.getGPU()
+        
+        var sleepValue:Double = 0
+        switch HCVersion.OSname {
+        case "Big Sur"     : sleepValue = 0.5
+        case "Catalina"    : sleepValue = 0.5
+        case "Mojave"      : sleepValue = 0.5
+        case "High Sierra" : sleepValue = 0.5
+        default            : sleepValue = 0
+        }
+        if sleepValue > 0  { Thread.sleep(forTimeInterval: sleepValue) }
     }
 
     override var representedObject: Any? {
