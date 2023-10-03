@@ -1,6 +1,5 @@
 import Foundation
 import AppKit
-import Zip
 
 class UpdateController {
     static func checkForUpdates() -> Bool {
@@ -43,11 +42,7 @@ class UpdateController {
         _ = run("[[ ! -d \"" + initGlobVar.thisAppliLocation + "\" ]]")
         print("Unzipping Archive...")
         notify(title: "Unzipping Archive", informativeText: "")
-        do {
-            _ = try Zip.unzipFile(URL(string: " " + initGlobVar.newAthreleasezip)!, destination: URL(string: " " + initGlobVar.athDirectory)!, overwrite: true, password: "")
-        } catch {
-            print(error)
-        }
+        _ = run("unzip \(initGlobVar.newAthreleasezip) -d \(initGlobVar.athDirectory)")
         
          print("Copying New Version...")
         notify(title: "Copying New Version", informativeText: "Almost there!")
@@ -55,7 +50,8 @@ class UpdateController {
 
         notify(title: "Update Complete!", informativeText: "Launching New Version...")
         _ = run("open " + initGlobVar.allAppliLocation + "\"" + initGlobVar.thisAppliname + "\"")
-        exit(0)    }
+        exit(0)
+    }
     
     static func notify(title: String, informativeText: String) -> Void {
         let notification = NSUserNotification()
