@@ -11,10 +11,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        print("Checking for Updates...")
+        /*print("Checking for Updates...")
         if UpdateController.checkForUpdates() {
             UpdateController.updateATH()
-        }
+        }*/
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

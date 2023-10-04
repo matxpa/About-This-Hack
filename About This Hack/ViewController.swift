@@ -151,7 +151,7 @@ class ViewController: NSViewController {
     func setToolTips() {
         osVersion.toolTip     = osVersiontoolTip
         systemVersion.toolTip = systemVersiontoolTip
-        macModel.toolTip      = macModeltoolTip
+        //macModel.toolTip      = macModeltoolTip
         cpu.toolTip           = cputoolTip
         ram.toolTip           = ramtoolTip
         startupDisk.toolTip   = startupDisktoolTip
