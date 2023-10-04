@@ -125,10 +125,10 @@ class HardwareCollector {
     static func getStorageData() -> [String] {
         deviceprotocol = run("grep \"Protocol:\" " + initGlobVar.bootvolnameFilePath + " | awk '{print $2}' | tr -d '\n'")
         devicelocation = run("grep \"Device Location:\" " + initGlobVar.bootvolnameFilePath + " | awk '{print $3}' | tr -d '\n'")
-        let size = run("grep \"Container Total Space:\" " + initGlobVar.bootvolnameFilePath + " | awk '{print $4,$5}'  | tr -d '\n'")
-        let sizeTrimmed = run("echo \"\(size)\" | cut -f1 -d\" \"").dropLast(1)
-        let available = run("grep \"Container Free Space\" " + initGlobVar.bootvolnameFilePath + " | awk '{print $4,$5}' | tr -d '\n'")
-        let availableTrimmed = run("echo \"\(available)\" | cut -f1 -d\" \"").dropLast(1)
+        let size = run("egrep \"[Container|Volume] Total Space:\" " + initGlobVar.bootvolnameFilePath + " | awk '{print $4,$5}'  | tr -d '\n'")
+        let sizeTrimmed = run("echo \"\(size)\" | awk '{print $1}' | tr -d '\n'")
+        let available = run("grep \"[Container|Volume] Free Space:\" " + initGlobVar.bootvolnameFilePath + " | awk '{print $4,$5}' | tr -d '\n'")
+        let availableTrimmed = run("echo \"\(available)\" | awk '{print $1}' | tr -d '\n'")
         let percent = (Double(availableTrimmed)!) / Double(sizeTrimmed)!
         let percentfree = NSString(format: "%.2f",((Double(availableTrimmed)!) / Double(sizeTrimmed)! * 100))
         print("Size: \(sizeTrimmed)")

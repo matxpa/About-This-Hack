@@ -36,12 +36,12 @@ class ViewControllerStorage: NSViewController {
         if (!HardwareCollector.dataHasBeenSet) {HardwareCollector.getAllData()}
 
         // Image
-        startupDiskImage.image = NSImage(named: "HDD")              // Default Value
         let imageShortName = (HCVersion.OSname + " " + HardwareCollector.devicelocation)
         switch HardwareCollector.getStorageType() {
-            case true: startupDiskImage.image = NSImage(named: imageShortName + " SSD")
-            case false:startupDiskImage.image = NSImage(named: imageShortName + " HDD")
+            case true:  startupDiskImage.image = NSImage(named: imageShortName + " SSD")
+            case false: startupDiskImage.image = NSImage(named: imageShortName + " HDD")
         }
+//        if HCVersion.OSname == "Mojave" || HCVersion.OSname == "High Sierra" { Thread.sleep(forTimeInterval: 0.25) }  // without effect
 
         // Text
         storageValue.stringValue = HardwareCollector.storageData

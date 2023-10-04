@@ -22,7 +22,9 @@ class HCMacModel {
     }
     
     static func getModelIdentifier() -> String {
-        return run("sysctl hw.model | cut -f2 -d \" \" | tr -d '\n'")
+        let modelId = run("sysctl hw.model | awk '{print $2}' | tr -d '\n'")
+        if modelId == "" { return( "Unknown") } else { return modelId }
+//        return run("sysctl hw.model | awk 'pprint $2}' | tr -d '\n'") ?? "Unknown"
     }
     
     
