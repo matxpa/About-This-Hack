@@ -15,7 +15,7 @@ class initGlobVar {
     static var defaultfileManager      = FileManager.default
 
     // Used by UpdateController
-    static var lastAthreleaseURL       = "https://github.com/perez987/About-This-Hack/releases/download/"
+    static var lastAthreleaseURL       = "https://github.com/0xCUB3/About-This-Hack/releases/download/"
     static var allAppliLocation        = "/Applications"
     static var thisAppliname           = "/About This Hack.app"
     static var thisAppliLocation       = allAppliLocation + thisAppliname
@@ -23,7 +23,7 @@ class initGlobVar {
     static var newAthreleasezip        = athDirectory + "/new_ath.zip"
     static var athtargetversionfile    = athDirectory + "/version.txt"
 
-    static var athsourceversionfile    = "https://raw.githubusercontent.com/perez987/Website/main/content/ath.txt"
+    static var athsourceversionfile    = "https://raw.githubusercontent.com/0xCUB3/Website/main/content/ath.txt"
     static var dispatchQueue           = "ga.0xCUBE.athqueue"
         
     // OCLP Dict File (if exists) where Patch Version Commit and DateTime will be extracted
