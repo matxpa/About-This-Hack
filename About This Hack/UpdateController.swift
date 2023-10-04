@@ -13,14 +13,7 @@ class UpdateController {
             print("Done")
             return prompt
         }
-            else {
-                print("You have the latest version: " + latestVersion)
-                let prompt = alert(message: "No new update found!", text: "You have the latest version: " + latestVersion)
-                print("Done")
-                return prompt
-            }
-        //}
-        //return false
+        return false
     }
     
     static func alert(message: String, text: String) -> Bool {
@@ -32,7 +25,7 @@ class UpdateController {
         alert.addButton(withTitle: "Skip")
         return alert.runModal() == NSApplication.ModalResponse.alertFirstButtonReturn
     }
-    
+        
     static func updateATH() {
         print("Starting Update...")
         print("Starting Download...")
